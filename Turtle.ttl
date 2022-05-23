@@ -1,0 +1,362 @@
+@prefix : <http://www.chalmer.se/group11/ontologies/2022/3/DAT475#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.chalmer.se/group11/ontologies/2022/3/DAT475> .
+
+<http://www.chalmer.se/group11/ontologies/2022/3/DAT475> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#areCourses
+:areCourses rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :ProgrammeCourses ;
+            rdfs:range :Courses .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#assignedFor
+:assignedFor rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :CourseInstance ;
+             rdfs:range :AssignedHours .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#assignedTo
+:assignedTo rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :AssignedHours ;
+            rdfs:range :Teachers .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#directedBy
+:directedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Programmes ;
+            rdfs:range :SeniorTeachers .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#employedAs
+:employedAs rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Students ;
+            rdfs:range :TeachingAssistants .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#employedAt
+:employedAt rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Teachers ;
+            rdfs:range :Department .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#examinedBy
+:examinedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :CourseInstance ;
+            rdfs:range :SeniorTeachers .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#fromDepartment
+:fromDepartment rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Courses ;
+                rdfs:range :Department .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#givenByDepartment
+:givenByDepartment rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Courses ;
+                   rdfs:range :Department .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#hasPlanning
+:hasPlanning rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :CourseInstance .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#inProgramme
+:inProgramme rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Students ;
+             rdfs:range :ProgrammeCourses .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#isCourse
+:isCourse rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :CourseInstance ;
+          rdfs:range :Courses .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#ownedBy
+:ownedBy rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Programmes ;
+         rdfs:range :Department .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#registeredAt
+:registeredAt rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Registrations ;
+              rdfs:range :ProgrammeCourses .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#registeredTo
+:registeredTo rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Students ;
+              rdfs:range :Registrations .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#reportedBy
+:reportedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :ReportedHours ;
+            rdfs:range :Teachers .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#reportedFor
+:reportedFor rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :CourseInstance ;
+             rdfs:range :ReportedHours .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#academicYear
+:academicYear rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :CourseInstance ,
+                          :ProgrammeCourses ;
+              rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#assistantHours
+:assistantHours rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :CourseInstance ;
+                rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#courseCode
+:courseCode rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Courses ;
+            rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#courseName
+:courseName rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Courses ;
+            rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#courseType
+:courseType rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :ProgrammeCourses ;
+            rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#credits
+:credits rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Courses ;
+         rdfs:range xsd:float .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#departmentName
+:departmentName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Department ;
+                rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#division
+:division rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :programmeName ;
+          rdfs:domain :Teachers ;
+          rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#grade
+:grade rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Registrations ;
+       rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#graduated
+:graduated rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Students ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#hours
+:hours rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :AssignedHours ,
+                   :ReportedHours ;
+       rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#instanceId
+:instanceId rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :CourseInstance ;
+            rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#level
+:level rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Courses ;
+       rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Students ,
+                  :Teachers ;
+      rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#planningNumStudents
+:planningNumStudents rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :CourseInstance ;
+                     rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#programmeCode
+:programmeCode rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Programmes ;
+               rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#programmeName
+:programmeName rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :division ;
+               rdfs:domain :Programmes ;
+               rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#seniorHours
+:seniorHours rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :CourseInstance ;
+             rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#status
+:status rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Registrations ;
+        rdfs:range xsd:string .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#studentId
+:studentId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Students ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#studyPeriod
+:studyPeriod rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :CourseInstance ;
+             rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#studyYear
+:studyYear rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :ProgrammeCourses ;
+           rdfs:range xsd:int .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#teacherId
+:teacherId rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Teachers ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#year
+:year rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Students ;
+      rdfs:range xsd:int .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#AssignedHours
+:AssignedHours rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#CourseInstance
+:CourseInstance rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Courses
+:Courses rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Department
+:Department rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#ProgrammeCourses
+:ProgrammeCourses rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Programmes
+:Programmes rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Registrations
+:Registrations rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#ReportedHours
+:ReportedHours rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#SeniorTeachers
+:SeniorTeachers rdf:type owl:Class ;
+                rdfs:subClassOf :Teachers ;
+                owl:disjointWith :TeachingAssistants .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Students
+:Students rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#Teachers
+:Teachers rdf:type owl:Class .
+
+
+###  http://www.chalmer.se/group11/ontologies/2022/3/DAT475#TeachingAssistants
+:TeachingAssistants rdf:type owl:Class ;
+                    rdfs:subClassOf :Teachers .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
